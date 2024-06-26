@@ -1,6 +1,6 @@
 # Frontend task
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
+PROJECT URL : https://frontend-task-7990a.web.app/
 ![frontend-task](https://github.com/ismaeli34/frontend-task/assets/17925504/9a259d47-dd75-44bb-9716-0a9ff41bb194)
 
 
