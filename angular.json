@@ -25,6 +25,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/ngx-loading-buttons/src/styles.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -87,6 +89,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/ngx-loading-buttons/src/styles.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -94,5 +98,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "4e494d39-3753-4682-b7a0-a9ef78968741"
   }
 }

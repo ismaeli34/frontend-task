@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Search </mat-label>
+            <input type="text" matInput name="search" [(ngModel)]="searchText" placeholder="Search by name....">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </form>
+    
+      </div>
+      <div class="col-md-4" >
+  
+        <div class="menuContainer1">
+          <mat-form-field>
+            <mat-label>Sort By</mat-label>
+            <mat-select [(ngModel)]="SortbyParam">
+              <mat-option value="name" >Name</mat-option>
+              <mat-option value="gender" >Gender</mat-option>
+              <mat-option value="id" >Id</mat-option>
+  
+  
+            </mat-select>
+          </mat-form-field>
+  
+  
+  
+        </div>
+    
+  
+      </div>
+  
+  
+      <div class="col-md-4">
+        <div class="menuContainer2">
+  
+             <button [class.spinner]="loading" [disabled]="loading" (click)= "refreshData()" class="m-2" mat-fab color="primary" aria-label="Example icon button with a sort icon">
+            <mat-icon>refresh</mat-icon>
+          </button>  
+        </div>
+      
+  
+      </div>
+    </div>
+  
+  </div>
+
+<div class="row">
+
+    <mat-card *ngFor="let user of users | filter:searchText | sort:[SortbyParam,SortDirection] | paginate:{itemsPerPage:4, currentPage:p}"  class=" custom-card example-card m-5" appearance="outlined">
+      <mat-card-header>
+      </mat-card-header>
+      <img mat-card-image [src]="'https://fakeimg.pl/350x200/?text=' + user.name" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <div class="card-content">
+        <p> <b>Email : </b> {{user.email}}</p>
+        <p> <b> Gender :</b> {{user.gender}}</p>
+        <p> <b>Status :</b>  <span [ngStyle]="{'color': user.status === 'active' ? 'green' : 'red'}">
+          {{user.status}}
+        </span></p>
+        <p> <b> ID: </b> {{user.id}}</p>
+
+        <mat-card-actions class="center-actions">
+
+          <button (click)="userDetails(user.id)"  class="m-2" mat-raised-button color="primary" aria-label="Example icon button with a sort icon">
+            Click here for details
+     
+           </button>
+
+        </mat-card-actions>
+  
+         
+   
+      </div>
+      </mat-card-content>
+      <mat-card-actions>
+  
+      </mat-card-actions>
+  
+    </mat-card>
+  
+    <div class="pagination-container">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  
+  </div>
+  
